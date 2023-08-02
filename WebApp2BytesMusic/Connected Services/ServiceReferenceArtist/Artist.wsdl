@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SaveArtist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="artist" type="tns:EArtist" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EArtist">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagePath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveArtistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveArtistResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckExistArtist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="artist" type="tns:EArtist" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckExistArtistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckExistArtistResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadArtist">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadArtistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadArtistResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateArtist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="artist" type="tns:EArtist" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateArtistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateArtistResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteArtist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="artistId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteArtistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteArtistResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtistValidations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="artist" type="tns:EArtist" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtistValidationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArtistValidationsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveArtistSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveArtist" />
+  </wsdl:message>
+  <wsdl:message name="SaveArtistSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckExistArtistSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckExistArtist" />
+  </wsdl:message>
+  <wsdl:message name="CheckExistArtistSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckExistArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadArtistSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadArtist" />
+  </wsdl:message>
+  <wsdl:message name="ReadArtistSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateArtistSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateArtist" />
+  </wsdl:message>
+  <wsdl:message name="UpdateArtistSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteArtistSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteArtist" />
+  </wsdl:message>
+  <wsdl:message name="DeleteArtistSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArtistValidationsSoapIn">
+    <wsdl:part name="parameters" element="tns:ArtistValidations" />
+  </wsdl:message>
+  <wsdl:message name="ArtistValidationsSoapOut">
+    <wsdl:part name="parameters" element="tns:ArtistValidationsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ArtistSoap">
+    <wsdl:operation name="SaveArtist">
+      <wsdl:input message="tns:SaveArtistSoapIn" />
+      <wsdl:output message="tns:SaveArtistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckExistArtist">
+      <wsdl:input message="tns:CheckExistArtistSoapIn" />
+      <wsdl:output message="tns:CheckExistArtistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadArtist">
+      <wsdl:input message="tns:ReadArtistSoapIn" />
+      <wsdl:output message="tns:ReadArtistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArtist">
+      <wsdl:input message="tns:UpdateArtistSoapIn" />
+      <wsdl:output message="tns:UpdateArtistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArtist">
+      <wsdl:input message="tns:DeleteArtistSoapIn" />
+      <wsdl:output message="tns:DeleteArtistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtistValidations">
+      <wsdl:input message="tns:ArtistValidationsSoapIn" />
+      <wsdl:output message="tns:ArtistValidationsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArtistSoap" type="tns:ArtistSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveArtist">
+      <soap:operation soapAction="http://tempuri.org/SaveArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckExistArtist">
+      <soap:operation soapAction="http://tempuri.org/CheckExistArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadArtist">
+      <soap:operation soapAction="http://tempuri.org/ReadArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArtist">
+      <soap:operation soapAction="http://tempuri.org/UpdateArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArtist">
+      <soap:operation soapAction="http://tempuri.org/DeleteArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtistValidations">
+      <soap:operation soapAction="http://tempuri.org/ArtistValidations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtistSoap12" type="tns:ArtistSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveArtist">
+      <soap12:operation soapAction="http://tempuri.org/SaveArtist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckExistArtist">
+      <soap12:operation soapAction="http://tempuri.org/CheckExistArtist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadArtist">
+      <soap12:operation soapAction="http://tempuri.org/ReadArtist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArtist">
+      <soap12:operation soapAction="http://tempuri.org/UpdateArtist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArtist">
+      <soap12:operation soapAction="http://tempuri.org/DeleteArtist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtistValidations">
+      <soap12:operation soapAction="http://tempuri.org/ArtistValidations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Artist">
+    <wsdl:port name="ArtistSoap" binding="tns:ArtistSoap">
+      <soap:address location="http://localhost/WSArtistBytesMusic/Artist.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtistSoap12" binding="tns:ArtistSoap12">
+      <soap12:address location="http://localhost/WSArtistBytesMusic/Artist.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
